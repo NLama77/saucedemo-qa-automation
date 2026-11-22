@@ -8,6 +8,18 @@ export class InventoryPage {
     return this.page.getByText('Products', { exact: true });
   }
 
+  get productItems(): Locator {
+    return this.page.locator('.inventory_item');
+  }
+
+  get productNames(): Locator {
+    return this.page.locator('.inventory_item_name');
+  }
+
+  get productPrices(): Locator {
+    return this.page.locator('.inventory_item_price');
+  }
+
   async addProductToCart(productName: string): Promise<void> {
     const product = this.page
       .locator('.inventory_item')
